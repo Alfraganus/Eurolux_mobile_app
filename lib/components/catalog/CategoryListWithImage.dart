@@ -9,14 +9,41 @@ class CategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const title = 'Grid List';
-    return  GridView.builder(
-      itemCount: 10,
-      shrinkWrap: true,
-      itemBuilder: (context, index) => ItemTile(index),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    return Expanded(
+      child: GridView.count(
         crossAxisCount: 2,
-        childAspectRatio: 2,
+        // childAspectRatio:3.5/ 3.4,
+        shrinkWrap: true,
+        // Generate 100 widgets that display their index in the List.
+        children: List.generate(10, (index) {
+          return Column(
+            children: [
+            Expanded(
+              child: Container(
+                height: 220,
+              width: double.infinity,
+              margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 20),
+              padding: const EdgeInsets.symmetric(vertical: 0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: HexColor('#8f57f326').withOpacity(0.10),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+                color: Colors.white,
+              ),
+              child: Image.asset('images/car.png'),
+          ),
+            ),
+              Text('Text2'),
+              Text('yesd')
+            ],
+          ) ;
+        }),
       ),
     );
   }
@@ -41,6 +68,7 @@ class ItemTile extends StatelessWidget {
           fit: StackFit.passthrough,
           alignment: Alignment.center,
           children: [
+            Image.asset('images/category_background.png'),
             Image.asset('images/car.png'),
           ],
         ),

@@ -46,7 +46,7 @@ class SearchInput extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
           filled: true,
-         fillColor: HexColor('#7567CB03'),
+
           contentPadding: EdgeInsets.symmetric(horizontal:0,vertical: 17),
           prefixIcon: ImageIcon(
             AssetImage('images/lupa.png'),

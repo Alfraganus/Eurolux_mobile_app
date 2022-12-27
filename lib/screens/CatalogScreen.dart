@@ -10,15 +10,15 @@ class Catalog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SingleChildScrollView(
         child: Column(
           children: [
-             SearchHeader(),
-            CategoryList(),
+            SearchHeader(),
+            SingleChildScrollView(child: CategoryList()),
           ],
         ),
       ),
+      resizeToAvoidBottomInset: true,
     );
   }
 }
