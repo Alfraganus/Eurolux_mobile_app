@@ -11,11 +11,16 @@ class Catalog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SearchHeader(),
-            SingleChildScrollView(child: CategoryList()),
-          ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 25),
+          child: Column(
+            children: const [
+             SearchHeader(),
+              SingleChildScrollView(
+                  child: CategoryList()
+              ),
+            ],
+          ),
         ),
       ),
       resizeToAvoidBottomInset: true,

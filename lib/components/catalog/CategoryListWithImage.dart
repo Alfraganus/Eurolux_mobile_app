@@ -17,12 +17,13 @@ class CategoryList extends StatelessWidget {
         // Generate 100 widgets that display their index in the List.
         children: List.generate(10, (index) {
           return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
             Expanded(
               child: Container(
-                height: 220,
+                height: 200,
               width: double.infinity,
-              margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 6,vertical: 20),
               padding: const EdgeInsets.symmetric(vertical: 0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25.0),
@@ -39,8 +40,16 @@ class CategoryList extends StatelessWidget {
               child: Image.asset('images/car.png'),
           ),
             ),
-              Text('Text2'),
-              Text('yesd')
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Naushniklar',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text('40 ta elonlar'),  ),
             ],
           ) ;
         }),
@@ -78,19 +87,4 @@ class ItemTile extends StatelessWidget {
   }
 }
 
-/*
-   return Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Stack(
-              fit: StackFit.passthrough,
-              alignment: Alignment.center,
-              children: [
-                Image.asset('images/category_background.png'),
-                Image.asset('images/car.png'),
-              ],
-            ),
-            Text('Car')
-          ],
-        );
-* */
+
