@@ -7,9 +7,9 @@ class ParentCategory {
 
   factory ParentCategory.fromJson(Map<String, dynamic> json) {
     return ParentCategory(
-      imageUrl: json['imageUrl'],
-      title: json['text1'],
-      amountProducts: json['text2'],
+      imageUrl: json['icon'],
+      title: json['title'],
+      amountProducts: '15',
     );
   }
 }
