@@ -12,4 +12,15 @@ class ParentCategory {
       amountProducts: '15',
     );
   }
+
+/*  static List<ParentCategory> fetchData({required List jsonList}) {
+    List<ParentCategory> list = [];
+
+    for (int i = 0; i < jsonList.length; i++) {
+      list.add(ParentCategory.fromJson(json: jsonList[i]));
+    }
+
+    return list;
+  }*/
+
 }
