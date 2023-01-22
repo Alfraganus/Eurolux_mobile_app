@@ -16,9 +16,7 @@ class Catalog extends StatelessWidget {
           child: Column(
             children: const [
              SearchHeader(),
-              SingleChildScrollView(
-                  child: CategoryList()
-              ),
+              ParentCategory(),
             ],
           ),
         ),
