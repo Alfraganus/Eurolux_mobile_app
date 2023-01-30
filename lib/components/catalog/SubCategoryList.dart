@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/components/catalog/CategoryListWithImage.dart';
+import 'package:untitled/components/products/ProductList.dart';
 import 'package:untitled/models/SubCategoryModel.dart';
 import 'package:untitled/screens/CatalogScreen.dart';
 
 import '../../service/CategoryService.dart';
 
 class SubCategoryList extends StatelessWidget {
-  final int? id;
-  SubCategoryList({Key? key, this.id}) : super(key: key);
+  final int id;
+  SubCategoryList({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +35,9 @@ class SubCategoryList extends StatelessWidget {
         ),
         actions: [
          GestureDetector(
+            onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Catalog()));;
+          },
            child:  Image.asset('images/profile.png'),
          ),
         ],
@@ -45,16 +49,16 @@ class SubCategoryList extends StatelessWidget {
 
 
 class ListViewBuilder extends StatelessWidget {
-  final int? id;
-  const ListViewBuilder({Key? key, this.id}) : super(key: key);
+  final int id;
+  const ListViewBuilder({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<SubCategoryModel>>(
+    return FutureBuilder<List<dynamic>>(
         future: ApiService().getSubCategory(this.id),
         builder: (context, snapshot) {
-          if (snapshot.hasData && snapshot.data != null) {
-            if(snapshot.data?.length == 0){
+          if (snapshot.hasData) {
+             if(snapshot.data!.length == 0){
               return Container(
                 alignment: Alignment.topCenter,
                 child: Center(
@@ -63,39 +67,51 @@ class ListViewBuilder extends StatelessWidget {
               );
             }
             return ListView.builder(
-                itemCount: snapshot.data?.length,
+                itemCount: snapshot.data!.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: [
-                      ListTile(
-                          trailing: const Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            color: Colors.black,
-                            size:15,
-                          ),
-                          title: RichText(
-                            text: TextSpan(
-                              text: snapshot.data?[index].title??'',
-                              style: TextStyle(fontWeight: FontWeight.w900),
-                              children:  <TextSpan>[
-                                TextSpan( text:' (',style: TextStyle(fontWeight: FontWeight.w100)),
-                                TextSpan( text:snapshot.data?[index].amountProducts??'',style: TextStyle(fontWeight: FontWeight.w100)),
-                                TextSpan( text:')',style: TextStyle(fontWeight: FontWeight.w100)),
-
-                              ],
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>
+                              ProductList(
+                                category_id:snapshot.data![index].category_id,
+                                sub_category_id:snapshot.data![index].id,
+                              )
+                          )
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        ListTile(
+                            trailing: const Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              color: Colors.black,
+                              size:15,
                             ),
-                          ) /* Text(snapshot.data?[index].title??'',style: const TextStyle(
-                              fontWeight: FontWeight.w900
-                          ),)*/
-                      ),
-                      Divider(),
-                    ],
+                            title: RichText(
+                              text: TextSpan(
+                                text: snapshot.data![index].title,
+                                style: TextStyle(fontWeight: FontWeight.w900),
+                                children:  <TextSpan>[
+                                  TextSpan( text:' (',style: TextStyle(fontWeight: FontWeight.w100)),
+                                  TextSpan( text:snapshot.data![index].amountProducts.toString(),style: TextStyle(fontWeight: FontWeight.w100)),
+                                  TextSpan( text:')',style: TextStyle(fontWeight: FontWeight.w100)),
+
+                                ],
+                              ),
+                            ) /* Text(snapshot.data?[index].title??'',style: const TextStyle(
+                                fontWeight: FontWeight.w900
+                            ),)*/
+                        ),
+                        Divider(),
+                      ],
+                    ),
                   );
                 });
           } else if(snapshot.connectionState == ConnectionState.waiting) {
             return Text("Waiting");
           } else {
-            return Text(snapshot.error.toString());
+            return  Text('${snapshot.error}');
           }
 
         });

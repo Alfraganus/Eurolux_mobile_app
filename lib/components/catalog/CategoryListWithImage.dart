@@ -26,7 +26,7 @@ class ParentCategory extends StatelessWidget {
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) =>
-                          SubCategoryList(id:snapshot.data?[index].id)
+                          SubCategoryList(id: snapshot.data![index].id)
                       )
                   );
                 },

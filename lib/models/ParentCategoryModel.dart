@@ -1,11 +1,11 @@
 
 class ParentCategoryModel {
-  final int? id;
+  final int id;
   final String? imageUrl;
   final String? title;
   final String? amountProducts;
 
-  ParentCategoryModel({this.id,this.imageUrl, this.title, this.amountProducts});
+  ParentCategoryModel({required this.id,this.imageUrl, this.title, this.amountProducts});
 
   factory ParentCategoryModel.fromJson(Map<String, dynamic> json) {
     return ParentCategoryModel(

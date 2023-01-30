@@ -16,12 +16,11 @@ class ApiService {
     }
   }
 
-  Future<List<SubCategoryModel>> getSubCategory(category_id) async {
+  Future<List<SubCategoryModel>> getSubCategory(int category_id) async {
     Response response = await get(Uri.parse('http://eurolux.api/category/category/sub?category_id=${category_id}'));
     if(response.statusCode == 200) {
       final List result = jsonDecode(response.body);
       return result.map(((e) => SubCategoryModel.fromJson(e))).toList();
-      // return result.map((e) => SubCategoryModel.fromJson(e)).toList();
     } else {
       throw Exception(response.reasonPhrase);
     }

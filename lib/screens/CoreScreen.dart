@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:untitled/components/products/ProductList.dart';
 import 'package:untitled/screens/CatalogScreen.dart';
+
+import 'ProductScreen.dart';
 
 class CoreWidget extends StatefulWidget {
   const CoreWidget({super.key});
@@ -21,8 +24,7 @@ class _CoreWidgetState extends State<CoreWidget> {
     'Catalog',
   ];
   static const List<Widget> _widgetOptions = <Widget>[
-    Catalog(),
-    Test(),
+    ProductList(category_id: '9', sub_category_id: '1 '),
     Text(
       'Index 2: School',
       style: optionStyle,
@@ -55,7 +57,7 @@ class _CoreWidgetState extends State<CoreWidget> {
         ],
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOptions.elementAt(0),
       ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.only(top: 15),
@@ -84,11 +86,4 @@ class _CoreWidgetState extends State<CoreWidget> {
   }
 }
 
-class Test extends StatelessWidget {
-  const Test({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Text('Hello I am working');
-  }
-}
