@@ -4,6 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart' as http;
 import 'package:untitled/models/ParentCategoryModel.dart';
 import 'package:untitled/models/ProductModel.dart';
+import 'package:untitled/screens/ProductSinglePage.dart';
 import 'package:untitled/service/CategoryService.dart';
 import '../../service/ProductService.dart';
 import '../catalog/SubCategoryList.dart';
@@ -70,7 +71,14 @@ class ProductList extends StatelessWidget {
                 // Generate 100 widgets that display their index in the List.
                 children: List.generate(snapshot.data?.length ?? 0, (index) {
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ProductSingle()
+                      ));
+                    },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
