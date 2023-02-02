@@ -1,30 +1,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/models/ProductModel.dart';
+import '../service/ProductService.dart';
 
 class ProductSingle extends StatelessWidget {
-  const ProductSingle({Key? key}) : super(key: key);
+  final int id;
+  const ProductSingle({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-        body: Column(
-      children: [
-        header(),
-        const Hero(),
-        SingleChildScrollView(child: section()),
-      ],
-    ));
+      body: FutureBuilder(
+        builder: (index, snapshot) {
+          print(snapshot.data);
+          return Column(
+            children: [
+              header(snapshot.data?[0].title,snapshot.data?[0].price),
+              Hero(),
+              SingleChildScrollView(child: section()),
+            ],
+          );
+        },
+        future: ProductApiService().getSingleProduct(11),
+      ),
+    );
   }
 
-  Widget header() {
+  Widget header( title,price) {
     return Container(
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: Column(
         children: [
-          Text("MEN'S ORIGINAL",
+          Text(title,
               style: TextStyle(fontWeight: FontWeight.w100, fontSize: 16)),
-          Text("150 000 so\'m",
+          Text(price,
               style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24))
         ],
       ),

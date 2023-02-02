@@ -25,7 +25,7 @@ class _CoreWidgetState extends State<CoreWidget> {
     'Catalog',
   ];
   static const List<Widget> _widgetOptions = <Widget>[
-    ProductSingle(),
+    ProductSingle(id:11),
     // ProductList(category_id: '9', sub_category_id: '1 '),
     Text(
       'Index 2: School',
