@@ -76,7 +76,7 @@ class ProductList extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  ProductSingle(id:11)
+                                  ProductSingle(id:snapshot.data![index].id)
                       ));
                     },
                     child: Column(
