@@ -10,7 +10,7 @@ class ParentCategoryModel {
   factory ParentCategoryModel.fromJson(Map<String, dynamic> json) {
     return ParentCategoryModel(
       id: json['id'],
-      imageUrl: 'local/'+ json['icon'],
+      imageUrl: json['icon'],
       title: json['title']??'Title',
       amountProducts: '15',
     );

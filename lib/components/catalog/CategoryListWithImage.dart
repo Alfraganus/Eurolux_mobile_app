@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:untitled/models/ParentCategoryModel.dart';
 import 'package:untitled/service/CategoryService.dart';
 
+import '../../constants/CoreConstants.dart';
 import 'SubCategoryList.dart';
 
 class ParentCategory extends StatelessWidget {
@@ -52,8 +53,7 @@ class ParentCategory extends StatelessWidget {
                           ],
                           color: Colors.white,
                         ),
-                        child:  Image.asset(snapshot.data?[index].imageUrl.toString()??''),// Image.network(snapshot.data?[index].imageUrl??''),
-
+                        child: Image.network(snapshot.data?[index].imageUrl ?? ''),//Image.asset(snapshot.data?[index].imageUrl.toString()??'') ,
                       ),
                     ),
                     Padding(
