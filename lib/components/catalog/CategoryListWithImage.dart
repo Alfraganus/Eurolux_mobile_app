@@ -53,7 +53,10 @@ class ParentCategory extends StatelessWidget {
                           ],
                           color: Colors.white,
                         ),
-                        child: Image.network(snapshot.data?[index].imageUrl ?? ''),//Image.asset(snapshot.data?[index].imageUrl.toString()??'') ,
+                        child:Image.network(
+                          'https://api.spector77.uz/storage/web/upload/7-2-keyboard-png-clipart1696248711.png',
+                          fit: BoxFit.cover, // Adjust this to your needs
+                        ),//Image.asset(snapshot.data?[index].imageUrl.toString()??'') ,
                       ),
                     ),
                     Padding(
