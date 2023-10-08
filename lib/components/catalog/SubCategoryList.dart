@@ -38,7 +38,7 @@ class SubCategoryList extends StatelessWidget {
             onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => Catalog()));;
           },
-           child:  Image.asset('images/profile.png'),
+           child:  Image.asset('assets/images/profile.png'),
          ),
         ],
       ),
@@ -91,12 +91,11 @@ class ListViewBuilder extends StatelessWidget {
                             title: RichText(
                               text: TextSpan(
                                 text: snapshot.data![index].title,
-                                style: TextStyle(fontWeight: FontWeight.w900),
+                                style: TextStyle(fontWeight: FontWeight.w900,color: Colors.black),
                                 children:  <TextSpan>[
-                                  TextSpan( text:' (',style: TextStyle(fontWeight: FontWeight.w100)),
-                                  TextSpan( text:snapshot.data![index].amountProducts.toString(),style: TextStyle(fontWeight: FontWeight.w100)),
-                                  TextSpan( text:')',style: TextStyle(fontWeight: FontWeight.w100)),
-
+                                  TextSpan( text:' (',style: TextStyle(fontWeight: FontWeight.w100, color: Colors.black),),
+                                  TextSpan( text:snapshot.data![index].amountProducts.toString(),style: TextStyle(fontWeight: FontWeight.w100, color: Colors.black)),
+                                  TextSpan( text:')',style: TextStyle(fontWeight: FontWeight.w100, color: Colors.black)),
                                 ],
                               ),
                             ) /* Text(snapshot.data?[index].title??'',style: const TextStyle(

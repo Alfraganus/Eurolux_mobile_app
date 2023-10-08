@@ -12,7 +12,7 @@ class Catalog extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             children: const [
              SearchHeader(),

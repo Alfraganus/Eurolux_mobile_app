@@ -27,8 +27,8 @@ class AdvancedSearchIcon extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Image.asset('images/icon_search_background.png'),
-          Image.asset('images/search_icon_content.png'),
+          Image.asset('assets/images/icon_search_background.png'),
+          Image.asset('assets/images/search_icon_content.png'),
         ],
       ),
     );
@@ -49,7 +49,7 @@ class SearchInput extends StatelessWidget {
 
           contentPadding: EdgeInsets.symmetric(horizontal:0,vertical: 17),
           prefixIcon: ImageIcon(
-            AssetImage('images/lupa.png'),
+            AssetImage('assets/images/lupa.png'),
             color: HexColor('#7567cb1a'),
             size: 10,
           ),

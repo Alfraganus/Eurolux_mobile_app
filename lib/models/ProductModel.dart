@@ -12,7 +12,7 @@ class ProductModel {
     return ProductModel(
       id: json['id'],
       title: json['title']??'Title',
-      image: 'local/'+json['image'],
+      image: json['image'],
       description: json['description'],
       price: json['price'],
     );

@@ -21,7 +21,7 @@ class _CoreWidgetState extends State<CoreWidget> {
     fontWeight: FontWeight.bold,
   );
     List<String> AppbarTitle = [
-    'Bosh sahifa',
+    'Asosiy',
     'Catalog',
   ];
   static const List<Widget> _widgetOptions = <Widget>[
@@ -55,7 +55,7 @@ class _CoreWidgetState extends State<CoreWidget> {
           ),),
         ),
         actions: [
-          Image.asset('images/profile.png'),
+          Image.asset('assets/images/profile.png'),
         ],
       ),
       body: Center(
@@ -67,14 +67,14 @@ class _CoreWidgetState extends State<CoreWidget> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: ImageIcon(
-                AssetImage('images/lenta.png'),
+                AssetImage('assets/images/lenta.png'),
                 size: 36,
               ),
               label: 'Asosiy',
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
-                AssetImage('images/catalog.png'),
+                AssetImage('assets/images/catalog.png'),
               ),
               label: 'Catalog',
             ),

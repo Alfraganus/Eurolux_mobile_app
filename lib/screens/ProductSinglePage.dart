@@ -96,7 +96,7 @@ class Hero extends StatelessWidget {
             Container(
               child: Stack(
                 children: [
-                  Image.asset(image,
+                  Image.network(image,
                     height: MediaQuery
                         .of(context)
                         .size

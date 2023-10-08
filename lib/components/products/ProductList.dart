@@ -53,7 +53,7 @@ class ProductList extends StatelessWidget {
                           SubCategoryList(id: int.parse(this.category_id))));
               ;
             },
-            child: Image.asset('images/profile.png'),
+            child: Image.asset('assets/images/profile.png'),
           ),
         ],
       ),
@@ -102,7 +102,7 @@ class ProductList extends StatelessWidget {
                               ],
                               color: Colors.white,
                             ),
-                            child: Image.asset(snapshot.data?[index].image
+                            child: Image.network(snapshot.data?[index].image
                                     .toString() ??
                                 ''), // Image.network(snapshot.data?[index].imageUrl??''),
                           ),
