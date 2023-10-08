@@ -1,4 +1,6 @@
 
+import '../constants/CoreConstants.dart';
+
 class ParentCategoryModel {
   final int id;
   final String? imageUrl;
@@ -10,7 +12,7 @@ class ParentCategoryModel {
   factory ParentCategoryModel.fromJson(Map<String, dynamic> json) {
     return ParentCategoryModel(
       id: json['id'],
-      imageUrl: json['icon'],
+      imageUrl: Constants.IMAGE_PATH + json['icon'],
       title: json['title']??'Title',
       amountProducts: '15',
     );

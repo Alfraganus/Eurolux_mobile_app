@@ -1,4 +1,6 @@
 
+import '../constants/CoreConstants.dart';
+
 class ProductModel {
   final int id;
   final String? title;
@@ -12,7 +14,7 @@ class ProductModel {
     return ProductModel(
       id: json['id'],
       title: json['title']??'Title',
-      image: json['image'],
+      image: Constants.IMAGE_PATH+json['image'],
       description: json['description'],
       price: json['price'],
     );
